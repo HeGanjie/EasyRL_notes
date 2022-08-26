@@ -26,6 +26,7 @@
 * Proximal Policy Optimization (PPO)：避免在使用 important sampling 时，两种分布采样出来的 action 差别过大，导致 important sampling 结果偏差较大而采取的算法
 * 基于off-policy的优势：使用off-policy的importance sampling后，我们不用 θ 去跟环境做互动，假设有另外一个 policy θ′，它就是另外一个actor。它的工作是他要去做demonstration，θ′的工作是要去示范给 θ 看。它去跟环境做互动，告诉 θ 说，它跟环境做互动会发生什么事。然后，借此来训练θ。我们要训练的是 θ ，θ′只是负责做 demo，负责跟环境做互动，所以 sample 出来的东西跟 θ 本身是没有关系的。所以你就可以让 θ′ 做互动 sample 一大堆的data，θ 可以update 参数很多次。然后一直到 θ train 到一定的程度，update 很多次以后，θ′再重新去做 sample，这就是 on-policy 换成 off-policy 的妙用
 * KL divergence：本质来说，KL divergence是一个function，其度量的是两个action （对应的参数分别为θ 和 θ′）间的行为上的差距，而不是参数上的差距
+* PPO-Clip: 实现起来比 KL 散度简单，而且效果似乎还不错
 
 ### 问题
 
